@@ -1,0 +1,75 @@
+/* src/components/Review/ReviewForm.css */
+.review-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-form-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.review-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.star-rating {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 2.5em; /* 별 크기 조절 */
+  cursor: pointer;
+}
+
+.star-rating .star {
+  color: #ccc; /* 빈 별 색상 */
+  transition: color 0.2s;
+  display: inline-block; /* 별 사이에 공백 제거 */
+  margin: 0 2px;
+}
+
+.star-rating .star.filled {
+  color: #ffc107; /* 채워진 별 색상 (황금색) */
+}
+
+.review-form-container textarea {
+  width: calc(100% - 20px); /* 패딩 고려하여 너비 조절 */
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1.1em;
+  line-height: 1.5;
+  resize: vertical; /* 수직으로만 크기 조절 가능 */
+  font-family: inherit; /* 부모 폰트 상속 */
+}
+
+.review-form-container textarea::placeholder {
+  color: #999;
+}
+
+.review-form-container button {
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end; /* 버튼을 오른쪽 정렬 */
+  margin-top: 10px;
+}
+
+.review-form-container button:hover {
+  background-color: #0056b3;
+}

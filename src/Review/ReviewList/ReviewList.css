@@ -1,0 +1,76 @@
+/* src/components/Review/ReviewList.css */
+.review-list-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-list-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.no-reviews {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-size: 1.1em;
+}
+
+.review-item {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-author {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.review-date {
+  color: #888;
+  font-size: 0.9em;
+}
+
+.star-rating-display {
+  font-size: 1.5em; /* 목록에 표시되는 별 크기 */
+  margin-bottom: 10px;
+}
+
+.star-rating-display .star {
+  color: #ccc; /* 빈 별 색상 */
+  display: inline-block;
+  margin: 0 1px;
+}
+
+.star-rating-display .star.filled {
+  color: #ffc107; /* 채워진 별 색상 */
+}
+
+.review-text {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1em;
+}
