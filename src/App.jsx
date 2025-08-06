@@ -12,13 +12,15 @@ import Video from './pages/Video/Video.jsx';
 import Contact from './pages/Contact/Contact.jsx';
 import LoginMain from './auth/LoginMain';
 import Logout from './Login_Logic/Logout';
-import KakaoLoginBox from './Login_Logic/카카오로그인/KakaoLoginBox.jsx';
 import KakaoCallback from './Login_Logic/카카오로그인/KakaoCallback.jsx';
 import Footer from './components/Footer/Footer.jsx'; 
 import SingUp from './Login_Logic/회원가입/SingUp.jsx';
 import MyPage from './auth/MyPage.jsx';
 // src/App.js
-import ReviewPage from './Review/ReviewPage/ReviewPage.jsx';
+import Notice from './pages/notice/Notice.jsx';
+import PostForm from './pages/notice/PostForm.jsx';
+import EditPostForm from './pages/notice/EditPostForm.jsx';
+import PostDetail from './pages/notice/PostDetail.jsx';
 
 
 export default function App() {
@@ -39,23 +41,27 @@ export default function App() {
 
           <main className="main-content">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/history" element={<History />} />
-              <Route path="/program" element={<Program />} />
-              <Route path="/place" element={<Place />} />
-              <Route path="/reservation" element={<Reservation />} />
-              <Route path="/video" element={<Video />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<LoginMain user={user} setUser={setUser} />} />
-              <Route path="/kakao/callback" element={<KakaoCallback setUser={setUser} />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/signup" element={<SingUp />} />
-              <Route path="/mypage" element={<MyPage user={user} />} />
-    <Route path="/review" element={<ReviewPage />} />
+              <Route path="/" element={<Home />} /> {/* 홈 */}
+              <Route path="/history" element={<History />} /> {/* 경력 */}
+              <Route path="/program" element={<Program />} /> {/* 프로그램 */}
+              <Route path="/place" element={<Place />} /> {/* 장소 */}
+              <Route path="/reservation" element={<Reservation />} /> {/* 예약 */}
+              <Route path="/video" element={<Video />} /> {/* 영상+좋아요+싫어요 */}
+              <Route path="/contact" element={<Contact />} /> {/* 연락 */}
+              <Route path="/notice" element={<Notice />} /> {/* 게시판 */}
+              <Route path="/write" element={<PostForm />} /> {/* 게시글 작성 */}
+              <Route path="/edit/:id" element={<EditPostForm />} />{/* 게시글 수정 */}
+              <Route path="/board/:id" element={<PostDetail />} />{/* 게시글 상세보기 목록*/}
+              <Route path="/login" element={<LoginMain user={user} setUser={setUser} />} /> {/* 로그인 집합소 */}
+              <Route path="/kakao/callback" element={<KakaoCallback setUser={setUser} />} /> {/* 카카오 로그인 */}
+              <Route path="/logout" element={<Logout />} /> {/* 로그아웃 */}
+              <Route path="/signup" element={<SingUp />} /> {/* 회원가입 */}
+              <Route path="/mypage" element={<MyPage user={user} />} /> {/* 마이페이지 */}
+    {/* <Route path="/review" element={<ReviewPage />} /> */}
             </Routes>
           </main>
 
-          <Footer />
+          <Footer /> 
         </div>
       </BrowserRouter>
     </GoogleOAuthProvider>

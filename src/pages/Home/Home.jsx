@@ -55,12 +55,11 @@ function Home() {
               </tr>
               <tr>
                 <th><span className="table-icon">🎓</span> 최종학력</th>
-                <td>서울대학교 성악과 졸업</td>
-                <td>모짜르테움 오퍼과 졸업</td>
+                <td>서울대학교 성악과 졸업 + 모짜르테움 오페라 석사 졸업</td>
               </tr>
               <tr>
                 <th><span className="table-icon">🏆</span> 국제콩쿨</th>
-                <td>○○ 국제콩쿨 수상</td>
+                <td>엘리자베스 국제콩쿨 수상</td>
               </tr>
             </tbody>
           </table>

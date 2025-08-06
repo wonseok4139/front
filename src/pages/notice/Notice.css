@@ -1,0 +1,76 @@
+/* src/components/notice/Notice.css */
+.notice-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* 테이블 셀 경계를 합쳐줍니다. */
+}
+
+th, td {
+  border: 1px solid hsl(0, 10%, 35%);
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: hsl(0, 10%, 35%);
+}
+
+tr:nth-child(even) {
+  background-color: hsl(0, 10%, 35%);
+}
+
+/* 글쓰기 */
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* 버튼을 오른쪽으로 정렬 */
+  margin-top: 20px;
+}
+
+.write-button {
+  padding: 10px 20px;
+  background-color: #007bff; /* 파란색 배경 */
+  color: white; /* 흰색 글자 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.write-button:hover {
+  background-color: #0056b3; /* 마우스 오버 시 색상 변경 */
+}
+
+/* 수정, 삭제 */
+.edit-button, .delete-button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-button {
+  background-color: #ffc107; /* 노란색 계열 */
+  color: black;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.delete-button {
+  background-color: #dc3545; /* 빨간색 계열 */
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+/*  */

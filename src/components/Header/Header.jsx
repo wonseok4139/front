@@ -55,6 +55,7 @@ const handleSearchSubmit = (e) => {
     '/reservation': ['예약', 'book', '예약하기', '예약좀', '예약 좀요'],
     '/video': ['영상', '비디오', '공연', '무대'],
     '/contact': ['연락', '문의', '전화', 'contact'],
+    '/notice': ['질문', 'QnA'],
   };
 
   // 어떤 경로든 키워드가 포함되면 해당 경로로 이동
@@ -94,6 +95,7 @@ const handleSearchSubmit = (e) => {
             <li><Link className="header-nav-item" to="/reservation">예약</Link></li>
             <li><Link className="header-nav-item" to="/video">영상</Link></li>
             <li><Link className="header-nav-item" to="/contact">연락</Link></li>
+            <li><Link className="header-nav-item" to="/notice ">게시판</Link></li>
 {/* ✨ 여기에 새로운 링크를 추가합니다 ✨ */}    
   <li><Link className="header-nav-item" to="/review">후기</Link></li>
 {user ? (
