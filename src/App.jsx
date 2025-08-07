@@ -21,6 +21,7 @@ import Notice from './pages/notice/Notice.jsx';
 import PostForm from './pages/notice/PostForm.jsx';
 import EditPostForm from './pages/notice/EditPostForm.jsx';
 import PostDetail from './pages/notice/PostDetail.jsx';
+import ProgramShop from './pages/Program/ProgramShop.jsx';
 
 
 export default function App() {

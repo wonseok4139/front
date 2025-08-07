@@ -72,5 +72,13 @@ tr:nth-child(even) {
 .delete-button:hover {
   background-color: #c82333;
 }
-
+.cancel-button {
+  padding: 15px 45px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #007bff;
+}
 /*  */

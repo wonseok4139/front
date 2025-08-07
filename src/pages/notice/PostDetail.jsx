@@ -52,7 +52,7 @@ function PostDetail() {
         </div>
       </div>
       <div className="button-container">
-        <button className="write-button" onClick={() => navigate('/board')}>
+        <button className="write-button" onClick={() => navigate('/notice')}>
           목록으로 돌아가기
         </button>
       </div>

@@ -24,7 +24,7 @@ function EditPostForm() {
       } catch (error) {
         console.error("게시글을 불러오는 중 오류가 발생했습니다:", error);
         alert('게시글을 불러오는 데 실패했습니다.');
-        navigate('/'); // 오류 발생 시 목록으로 돌아갑니다.
+        navigate('/notice'); // 오류 발생 시 목록으로 돌아갑니다.
       }
     };
 
@@ -39,7 +39,7 @@ function EditPostForm() {
       // 백엔드 수정 API에 PUT 요청을 보냅니다.
       await axios.put(`http://localhost:8000/api/boards/${id}`, updatedPost);
       alert('게시글이 성공적으로 수정되었습니다!');
-      navigate('/'); // 게시글 목록 페이지로 이동
+      navigate('/notice'); // 게시글 목록 페이지로 이동
     } catch (error) {
       console.error("게시글 수정 중 오류가 발생했습니다:", error);
       alert('게시글 수정에 실패했습니다.');
@@ -81,7 +81,7 @@ function EditPostForm() {
           />
         </div>
         <button type="submit" className="submit-button">수정 완료</button>
-        <button type="button" className="cancel-button" onClick={() => navigate('/')}>취소</button>
+        <button type="button" className="cancel-button" onClick={() => navigate('/notice')}>취소</button>
       </form>
     </div>
   );

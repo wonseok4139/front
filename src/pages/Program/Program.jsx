@@ -1,5 +1,6 @@
 import React from 'react';
 import './Program.css';
+import ProgramShop from './ProgramShop';
 
 // ✨ 새로운 ProgramCard 컴포넌트 추가 ✨
 const ProgramCard = ({ title, duration, price, description, icon }) => {
@@ -71,6 +72,7 @@ const Program = () => {
           />
         ))}
       </div>
+      <ProgramShop/>
     </div>
   );
 };

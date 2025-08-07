@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import './Notice.css';
 function PostForm() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -17,7 +17,7 @@ function PostForm() {
       // 백엔드 API에 POST 요청을 보냅니다.
       await axios.post('http://localhost:8000/api/boards', newPost);
       alert('게시글이 성공적으로 작성되었습니다!');
-      navigate('/'); // 게시글 목록 페이지로 이동
+      navigate('/notice'); // 게시글 목록 페이지로 이동
     } catch (error) {
       console.error("게시글 작성 중 오류가 발생했습니다:", error);
       alert('게시글 작성에 실패했습니다.');
