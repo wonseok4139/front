@@ -21,7 +21,7 @@ import Notice from './pages/notice/Notice.jsx';
 import PostForm from './pages/notice/PostForm.jsx';
 import EditPostForm from './pages/notice/EditPostForm.jsx';
 import PostDetail from './pages/notice/PostDetail.jsx';
-import ProgramShop from './pages/Program/ProgramShop.jsx';
+
 
 
 export default function App() {
@@ -52,7 +52,7 @@ export default function App() {
               <Route path="/notice" element={<Notice />} /> {/* 게시판 */}
               <Route path="/write" element={<PostForm />} /> {/* 게시글 작성 */}
               <Route path="/edit/:id" element={<EditPostForm />} />{/* 게시글 수정 */}
-              <Route path="/board/:id" element={<PostDetail />} />{/* 게시글 상세보기 목록*/}
+              <Route path="/post/:id" element={<PostDetail />} />{/* 게시글 상세보기 목록*/}
               <Route path="/login" element={<LoginMain user={user} setUser={setUser} />} /> {/* 로그인 집합소 */}
               <Route path="/kakao/callback" element={<KakaoCallback setUser={setUser} />} /> {/* 카카오 로그인 */}
               <Route path="/logout" element={<Logout />} /> {/* 로그아웃 */}

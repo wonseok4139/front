@@ -5,12 +5,16 @@ import { useNavigate } from 'react-router-dom';
 
 function Notice() {
   const [posts, setPosts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
-  // 게시글 목록을 가져오는 함수
-  const fetchPosts = async () => {
+  // 게시글 목록을 가져오는 함수 
+  const fetchPosts = async (search = '') => {
     try {
-      const response = await axios.get('http://localhost:8000/api/boards');
+      // 백엔드 API에 GET 요청을 보낼 때 검색어가 있으면 파라미터로 추가합니다.
+      const response = await axios.get(`http://localhost:8000/api/boards`, {
+        params: { search: search }
+      });
       setPosts(response.data);
     } catch (error) {
       console.error("게시글을 가져오는 중 오류가 발생했습니다:", error);
@@ -22,37 +26,63 @@ function Notice() {
     fetchPosts();
   }, []);
 
-  // 게시글 삭제 처리 함수
   const handleDelete = async (postId) => {
-    // TODO: window.confirm 대신 사용자 정의 모달 UI를 사용해야 합니다.
     if (window.confirm('정말로 이 게시글을 삭제하시겠습니까?')) {
       try {
         await axios.delete(`http://localhost:8000/api/boards/${postId}`);
-        // TODO: alert 대신 사용자 정의 모달 UI를 사용해야 합니다.
         alert('게시글이 삭제되었습니다.');
-        // 삭제된 게시글을 목록에서 제거하여 UI를 업데이트합니다.
-        setPosts(posts.filter(post => post.id !== postId));
+        // 삭제 후 목록을 다시 불러옵니다.
+        fetchPosts();
       } catch (error) {
         console.error("게시글 삭제 중 오류가 발생했습니다:", error);
-        // TODO: alert 대신 사용자 정의 모달 UI를 사용해야 합니다.
         alert('게시글 삭제에 실패했습니다.');
       }
     }
   };
 
-  // 게시글 수정 페이지로 이동하는 함수
   const handleEdit = (postId) => {
     navigate(`/edit/${postId}`);
   };
 
-  // 게시글 상세 페이지로 이동하는 함수 (제목 클릭 시)
   const handleTitleClick = (postId) => {
-    navigate(`/board/${postId}`); // '/board/{id}' 경로로 이동합니다.
+    navigate(`/post/${postId}`);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // 검색 버튼 클릭 시 또는 엔터 키 입력 시 실행되는 함수
+  const handleSearch = () => {
+    fetchPosts(searchTerm); // 백엔드 API로 검색어를 전달합니다.
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   return (
     <div className="notice-container">
       <h2>게시판 목록</h2>
+      <div className="search-box">
+        <input 
+          type="text" 
+          onChange={handleSearchChange} 
+          onKeyDown={handleKeyDown}
+          className="SearchBoard" 
+          placeholder='여기에 입력하시오...' 
+          value={searchTerm}
+        />
+        <button 
+          type="button" 
+          onClick={handleSearch} 
+          className="SearchBoardButton">
+          찾기
+        </button>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -68,18 +98,15 @@ function Notice() {
             <tr key={post.id}>
               <td>{post.id}</td>
               <td>
-                {/* 제목 클릭 시 handleTitleClick 함수를 호출하여 상세 페이지로 이동 */}
                 <span
                   className="post-title-link"
                   onClick={() => handleTitleClick(post.id)}
-                  style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }} // 클릭 가능한 것처럼 보이도록 스타일 추가
                 >
                   {post.title}
                 </span>
               </td>
               <td>{post.author}</td>
               <td>
-                {/* createDate가 존재하면 로컬 시간으로 포맷, 없으면 '날짜 미정' */}
                 {post.createDate
                   ? new Date(post.createDate).toLocaleString()
                   : '날짜 미정'}
@@ -103,7 +130,6 @@ function Notice() {
         </tbody>
       </table>
       <div className="button-container">
-        {/* "글쓰기" 버튼 클릭 시 작성 페이지로 이동 */}
         <button className="write-button" onClick={() => navigate('/write')}>
           글쓰기
         </button>
